@@ -1,0 +1,53 @@
+layout: {
+  carousel: [
+    {
+      code: "tk-carousel",
+      order: 0,
+      layout: [],
+      translations: "",
+      custom_fields: [
+        {
+          start_date: '16',
+          start_month: 'May',
+          divider: '-',
+          end_date: '22',
+          end_month: 'Jun',
+          img: 'dits.jpg'
+        },
+        {
+          start_date: '12',
+          start_month: 'Jun',
+          divider: '-',
+          end_date: '24',
+          end_month: 'Jul',
+          img: 'dits2.jpg'
+        },
+        {
+          start_date: '16',
+          start_month: 'May',
+          divider: '-',
+          end_date: '22',
+          end_month: 'Jun',
+          img: 'lebanon.jpg'
+        },
+        {
+          start_date: '16',
+          start_month: 'May',
+          divider: '-',
+          end_date: '22',
+          end_month: 'Jun',
+          img: '2.jpg'
+        }        
+      ]
+    }
+  ],
+  aside: [
+    {
+      code: 'tk-aside',
+      order: 0,
+      layout: [],
+      translations: "",
+      custom_fields: []      
+    }
+  ]
+}

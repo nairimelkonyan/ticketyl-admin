@@ -1,0 +1,604 @@
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+  box-sizing: border-box;
+  color: #292929;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+/* Colors */
+@black: #292929;
+@gray: #979797;
+@dark-grey: #9a9a9a;
+@mid-grey: #d9d9d9;
+@light-grey: #f7f7f7;
+@white: #fff;
+@red: #CB4A4A;
+/* Colors End */
+/* Misc */
+input[type="password"]{
+  -webkit-text-security: disc;
+  color: #9a9a9a;
+  width: 100%;
+  padding: 10px;
+}
+a:visited, a:focus{
+  color: #292929;
+}
+/* Misc End */
+.btn, .button, input{
+  outline: none !important;
+}
+/* CheckBox */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 2.65em;
+  cursor: pointer;
+}
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #292929;
+  background: #292929;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+[type="checkbox"]:not(:checked) + label:before{
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #292929;
+  background: #fff;
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  font-family: 'Material Icons';
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  content: 'done';
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 3px;
+  font-size: 16px;
+  color: #fff;
+  transition: all .2s;
+}
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #292929;
+  background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+
+}
+/* CheckBox End */
+/* RadioButton */
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+  position: relative;
+  padding-left: 32px;
+  cursor: pointer;
+}
+[type="radio"]:checked + label:before {
+  border-radius: 100%;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #292929;
+  background: #292929;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+[type="radio"]:not(:checked) + label:before{
+  border-radius: 100%;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #292929;
+  background: #fff;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+[type="radio"]:not(:checked) + label:after,
+[type="radio"]:checked + label:after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 7px;
+  left: 7px;
+  font-size: 7px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+[type="radio"]:disabled:not(:checked) + label:before,
+[type="radio"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #292929;
+  background-color: #ddd;
+}
+[type="radio"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="radio"]:disabled + label {
+  color: #aaa;
+}
+[type="radio"]:checked:focus + label:before,
+[type="radio"]:not(:checked):focus + label:before {
+}
+/* RadioButton End */
+label{
+  display: block;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+label:hover:before {
+
+}
+.line{
+  background-color: @gray;
+  width: 100%;
+  height: 1px;
+}
+h1{
+  font-size: 48px;
+  font-weight: bold;
+}
+h2{
+  font-size: 36px;
+  font-weight: bold;
+}
+h3{
+  font-size: 24px;
+  font-weight: bold;
+}
+h4{
+  font-size: 18px;
+  font-weight: bold;
+}
+h6{
+  font-size: 18px;
+  font-weight: bold;
+}
+a{
+  font-size: 14px;
+  text-decoration: underline;
+  color: @black;
+  text-transform: uppercase;
+  &:hover{
+    color: @dark-grey;
+  }
+}
+/* Calendar */
+.bootstrap-datetimepicker-widget{
+  margin-bottom: 16px;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu{
+  position: static;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+.calendar-wrapper{
+  font-family: 'Noto Sans', sans-serif;
+  h6{
+    display: inline-block;
+    font-size: 18px;
+  }
+  input.calendar{
+    display: none;
+  }
+}
+.calendar-wrapper select{
+  margin-bottom: 24px;
+}
+.calendar-wrapper .p-gray-1424{
+  text-align: left;
+}
+.calendar-wrapper p{
+  text-align: center;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu{
+  padding-bottom: 24px;
+  border-bottom: 1px solid #d6d6d6;
+  margin-bottom: 24px;
+}
+.bootstrap-datetimepicker-widget table thead tr:last-child th{
+  font-weight: lighter;
+  border-radius: 0;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+  text-transform: uppercase;
+  line-height: 0px;
+}
+.bootstrap-datetimepicker-widget table thead tr:first-child th{
+  text-transform: uppercase;
+  font-weight: lighter;
+  padding: 0;
+  line-height: 0;
+}
+.bootstrap-datetimepicker-widget table thead tr:first-child th:hover{
+  background-color: transparent;
+}
+.bootstrap-datetimepicker-widget table thead tr th.prev,
+.bootstrap-datetimepicker-widget table thead tr th.next{
+  color: #fff;
+  border-radius: 0;
+}
+.bootstrap-datetimepicker-widget table thead tr:first-child th{
+  font-size: 18px;
+}
+.bootstrap-datetimepicker-widget table thead tr th.prev:hover,
+.bootstrap-datetimepicker-widget table thead tr th.next:hover{
+  color: #fff;
+  border-radius: 0;
+}
+.bootstrap-datetimepicker-widget table td.day.active.disabled.today{
+  background-color: #fff;
+  color: #292929;
+  &:hover{
+    background-color: #fff;
+    color: #292929;
+  }
+}
+.bootstrap-datetimepicker-widget table td.day.active,
+.bootstrap-datetimepicker-widget table td.day.active.today{
+  background-color: #292929;
+  color: #fff;
+  &:hover{
+    background-color: #292929;
+    color: #fff;
+  }
+}
+.glyphicon{
+  width: 40px;
+  height: 40px;
+  background-color: #9a9a9a;
+}
+.glyphicon-chevron-left{
+  float: left;
+  transition: 0.3s;
+}
+.glyphicon-chevron-right{
+  float: right;
+  transition: 0.3s;
+}
+.glyphicon-chevron-left:before{
+  font-family: FontAwesome;
+  content: "\f104";
+  position: absolute;
+  font-size: 20px;
+  top: 10px;
+  left: 16px;
+}
+.glyphicon-chevron-right:before{
+  font-family: FontAwesome;
+  content: "\f105";
+  position: absolute;
+  font-size: 20px;
+  top: 10px;
+  left: 16px;
+}
+.bootstrap-datetimepicker-widget table td.today{
+  background-color: transparent;
+  text-shadow: none;
+}
+.bootstrap-datetimepicker-widget table td.today:before{
+  content: none;
+}
+.bootstrap-datetimepicker-widget.dropdown-menu{
+  background-color: #f7f7f7;
+}
+.bootstrap-datetimepicker-widget table{
+  width: 100%;
+  table-layout: inherit;
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+.bootstrap-datetimepicker-widget table td.day{
+  background-color: #979797;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  table-layout: inherit;
+  border-radius: 0;
+  &:hover{
+    background-color: #9a9a9a;
+    color: #fff;
+  }
+}
+.bootstrap-datetimepicker-widget table td.disabled{
+  background-color: #fff;
+  color: #292929;
+  &:hover{
+    box-shadow: none;
+    background-color: #fff;
+    color: #292929;
+  }
+}
+.bootstrap-datetimepicker-widget table td.new.disabled, .bootstrap-datetimepicker-widget table td.new.weekend, .bootstrap-datetimepicker-widget table td.old.weekend{
+  background-color: #fff;
+  color: #9a9a9a;
+  &:hover{
+    background-color: #fff;
+    color: #9a9a9a;
+  }
+}
+.modal {
+ overflow-y: auto;
+}
+.modal-backdrop.in{
+  opacity: 0.8;
+}
+.modal-open {
+ overflow: auto;
+}
+body.modal-open{
+  overflow: hidden;
+  width: 100%;
+}
+.modal-open .header-overlay{
+  padding-right: 17px;
+}
+/*
+.modal.fade .modal-dialog {
+  -webkit-transform: scale(0.1);
+  -moz-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+  top: 300px;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.modal.fade.in .modal-dialog {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transform: translate3d(0, -300px, 0);
+  transform: translate3d(0, -300px, 0);
+  opacity: 1;
+}
+*/
+@media(min-width:0px) and (max-width:767px){
+  body{
+    padding-bottom: 230px !important;
+  }
+  body.modal-open {
+    overflow: hidden;
+    position: fixed;
+  }
+  /*
+  ::-webkit-scrollbar-track{
+    -webkit-box-shadow: #292929;
+    background-color: #f7f7f7;
+  }
+  ::-webkit-scrollbar{
+    width: 8px;
+    background-color: #f7f7f7;
+  }
+  ::-webkit-scrollbar-thumb{
+    border: 2px solid #979797;
+    background-color: #979797;
+  }
+  */
+}
+.modal-open .modal{
+  z-index: 100000000 !important;
+}
+/* Calendar End */
+/* Extra Small */
+@media(min-width:0px) and (max-width:767px){
+  .bootstrap-datetimepicker-widget table td.day{
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+  .modal-close{
+    display: none;
+  }
+  .modal-dialog{
+    margin: 0;
+  }
+  h1{
+    font-size: 32px;
+  }
+}
+/* Small */
+@media(min-width:768px) and (max-width:991px){
+
+}
+/* Medium */
+@media(min-width:992px) and (max-width:1199px){
+
+}
+/* Large */
+@media(min-width:1200px){
+
+}
+.control-group {
+	display: inline-block;
+	width: 200px;
+	height: 210px;
+	margin: 10px;
+	padding: 30px;
+	text-align: left;
+	vertical-align: top;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+.control {
+	font-size: 18px;
+	position: relative;
+	display: block;
+	margin-bottom: 15px;
+	padding-left: 30px;
+	cursor: pointer;
+}
+
+.control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.control__indicator {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 20px;
+	height: 20px;
+  background: #fff;
+  border: 1px solid #292929;
+}
+
+.control--radio .control__indicator {
+	border-radius: 50%;
+}
+/* Hover and focus states */
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+	background: #fff;
+}
+
+/* Checked state */
+.control input:checked ~ .control__indicator {
+	background: #292929;
+}
+
+/* Hover state whilst checked */
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+	background: #444;
+}
+
+/* Disabled state */
+.control input:disabled ~ .control__indicator {
+	pointer-events: none;
+	opacity: .6;
+	background: #e6e6e6;
+}
+
+/* Check mark */
+.control__indicator:after {
+	position: absolute;
+	display: none;
+	content: '';
+}
+
+/* Show check mark */
+.control input:checked ~ .control__indicator:after {
+	display: block;
+}
+
+/* Checkbox tick */
+.control--checkbox .control__indicator:after {
+	top: 4px;
+	left: 8px;
+	width: 3px;
+	height: 8px;
+	transform: rotate(45deg);
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+}
+
+/* Disabled tick colour */
+.control--checkbox input:disabled ~ .control__indicator:after {
+	border-color: #7b7b7b;
+}
+
+/* Radio button inner circle */
+.control--radio .control__indicator:after {
+	top: 6px;
+	left: 6px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #fff;
+}
+
+/* Disabled circle colour */
+.control--radio input:disabled ~ .control__indicator:after {
+	background: #7b7b7b;
+}
